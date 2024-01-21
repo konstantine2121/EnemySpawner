@@ -5,10 +5,11 @@ namespace Assets.Sources.Enemies
     [RequireComponent (typeof (Rigidbody))]
     public class Enemy : MonoBehaviour, IEnemy
     {
+        [SerializeField][Range(0, 200)]
+        private float _movementSpeed = 0.5f;
+        
         private Vector3? _target;
         private Rigidbody _rigidbody;
-
-        private float _movementSpeed = 0.5f;
 
         private void Awake()
         {
@@ -26,7 +27,7 @@ namespace Assets.Sources.Enemies
 
             if (_target.HasValue)
             {
-                var pathToTarget = transform.position - _target.Value;
+                var pathToTarget = _target.Value - transform.position;
                 var direction = pathToTarget.normalized;
                 
                 _rigidbody.AddForce(direction * _movementSpeed * Time.deltaTime, ForceMode.VelocityChange);
