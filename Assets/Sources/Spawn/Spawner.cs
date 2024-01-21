@@ -50,7 +50,7 @@ namespace Assets.Sources.Spawn
             var spawnPoint = GetRandomSpawnPoint();
 
             if (!_isSpawning ||
-                _enemyPrefab is null ||
+                _enemyPrefab == null ||
                 spawnPoint is null)
             {
                 return null;
