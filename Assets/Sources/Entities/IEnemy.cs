@@ -4,6 +4,6 @@ namespace Assets.Sources.Entities
 {
     public interface IEnemy
     {
-        void Move(Vector3 direction);
+        void SetTarget(Vector3? direction);
     }
 }
