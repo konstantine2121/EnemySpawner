@@ -1,5 +1,4 @@
-﻿using Assets.Sources.Entities;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Sources.Spawn
 {

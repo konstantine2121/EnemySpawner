@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Sources.Entities
+namespace Assets.Sources.Enemies
 {
     [RequireComponent (typeof (Rigidbody))]
     public class Enemy : MonoBehaviour, IEnemy

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Sources.Entities
+namespace Assets.Sources.Enemies
 {
     public interface IEnemy
     {

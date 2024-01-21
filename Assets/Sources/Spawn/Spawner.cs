@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
-using Assets.Sources.Entities;
+using Assets.Sources.Enemies;
 using UnityEngine;
 
 namespace Assets.Sources.Spawn

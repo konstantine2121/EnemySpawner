@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Assets.Sources.Entities
+namespace Assets.Sources.Spawn
 {
-    public interface IEntity
+    public interface ISpawnPoint
     {
         Vector3 Position { get; }
     }
