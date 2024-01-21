@@ -3,7 +3,7 @@
 namespace Assets.Sources.Enemies
 {
     [RequireComponent (typeof (Rigidbody))]
-    public class Enemy : MonoBehaviour, IEnemy
+    public class EnemyMovement : MonoBehaviour, IEnemy
     {
         [SerializeField][Range(0, 200)]
         private float _movementSpeed = 0.5f;

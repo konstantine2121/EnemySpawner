@@ -12,7 +12,7 @@ namespace Assets.Sources.Spawn
         [SerializeField][Range(1, 5)]
         private float _spawnInterval = 2;
         [SerializeField] 
-        private Enemy _enemyPrefab;
+        private EnemyMovement _enemyPrefab;
         [SerializeField] 
         private Transform _target;
 
