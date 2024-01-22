@@ -8,13 +8,10 @@ namespace Assets.Sources.Spawn
     public class Spawner : MonoBehaviour
     {
         #region Fields
-        
-        [SerializeField][Range(1, 5)]
-        private float _spawnInterval = 2;
-        [SerializeField] 
-        private EnemyMovement _enemyPrefab;
-        [SerializeField] 
-        private Transform _target;
+
+        [SerializeField][Range(1, 5)] private float _spawnInterval = 2;
+        [SerializeField] private EnemyMovement _enemyPrefab;
+        [SerializeField] private Transform _target;
 
         private ISpawnPoint[] _spawnPoints;
         private bool _isSpawning;
@@ -22,8 +19,8 @@ namespace Assets.Sources.Spawn
 
         #endregion Fields
 
-        #region Unity Actions
-        
+        #region Unity Events
+
         private void Awake()
         {
             _spawnPoints = FindObjectsByType<SpawnPoint>(FindObjectsSortMode.None)
@@ -57,8 +54,8 @@ namespace Assets.Sources.Spawn
             }
 
             return Instantiate(
-                _enemyPrefab,
-                spawnPoint.Position,
+                _enemyPrefab, 
+                spawnPoint.Position, 
                 Quaternion.identity);
         }
 
@@ -69,7 +66,7 @@ namespace Assets.Sources.Spawn
                 null;
         }
 
-        private void MoveEnemy(IEnemy enemy)
+        private void SetTarget(IEnemy enemy)
         {
             Vector3? target = _target?.position;
             enemy?.SetTarget(target);
@@ -78,7 +75,7 @@ namespace Assets.Sources.Spawn
         #endregion Spawn logic
 
         #region Spawn cycle
-        
+
         private void EnableSpawning()
         {
             DisableSpawning();
@@ -106,7 +103,7 @@ namespace Assets.Sources.Spawn
             {
                 yield return delay;
 
-                MoveEnemy(SpawnEnemy());
+                SetTarget(SpawnEnemy());
             }
             while (_isSpawning && enabled);
         }
