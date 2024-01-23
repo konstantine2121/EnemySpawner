@@ -40,7 +40,7 @@ namespace Assets.Sources.Spawn
 
         #endregion Unity Actions
 
-        #region Spawn logic
+        #region Spawn
 
         private IEnemy SpawnEnemy()
         {
@@ -69,12 +69,12 @@ namespace Assets.Sources.Spawn
         private void SetTarget(IEnemy enemy)
         {
             Vector3? target = _target?.position;
-            enemy?.SetTarget(target);
+            enemy?.SetMovementDirection(target);
         }
 
-        #endregion Spawn logic
+        #endregion Spawn
 
-        #region Spawn cycle
+        #region Enable/ Disable Spawn
 
         private void EnableSpawning()
         {
@@ -108,6 +108,6 @@ namespace Assets.Sources.Spawn
             while (_isSpawning && enabled);
         }
 
-        #endregion Spawn cycle
+        #endregion Enable/ Disable Spawn
     }
 }
