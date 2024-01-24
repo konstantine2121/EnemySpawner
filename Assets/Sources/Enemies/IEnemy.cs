@@ -2,8 +2,8 @@
 
 namespace Assets.Sources.Enemies
 {
-    public interface IEnemy
+    public interface IEnemy : IPositionProvider
     {
-        void SetMovementDirection(Vector3? targetPosition);
+        void SetMovementDirection(Vector3? direction);
     }
 }

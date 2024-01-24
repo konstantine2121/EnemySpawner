@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Linq;
 using Assets.Sources.Enemies;
+using Assets.Sources.Extensions;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Assets.Sources.Spawn
 {
@@ -11,7 +14,7 @@ namespace Assets.Sources.Spawn
 
         [SerializeField][Range(1, 5)] private float _spawnInterval = 2;
         [SerializeField] private EnemyMovement _enemyPrefab;
-        [SerializeField] private Transform _target;
+        [SerializeField] private Transform _target = null;
 
         private ISpawnPoint[] _spawnPoints;
         private bool _isSpawning;
@@ -66,11 +69,16 @@ namespace Assets.Sources.Spawn
                 null;
         }
 
-        private void SetTarget(IEnemy enemy)
+        private void SetEnemyMovementDirection(IEnemy enemy)
         {
-            Vector3? target = _target?.position;
-            enemy?.SetMovementDirection(target);
+            if (enemy == null || _target == null)
+            {
+                return;
+            }
+
+            enemy.SetMovementDirection(enemy.Position.GetDirection(_target.position));
         }
+
 
         #endregion Spawn
 
@@ -103,7 +111,7 @@ namespace Assets.Sources.Spawn
             {
                 yield return delay;
 
-                SetTarget(SpawnEnemy());
+                SetEnemyMovementDirection(SpawnEnemy());
             }
             while (_isSpawning && enabled);
         }

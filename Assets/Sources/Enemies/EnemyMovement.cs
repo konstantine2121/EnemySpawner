@@ -11,7 +11,7 @@ namespace Assets.Sources.Enemies
         
         private Vector3? _direction;
         private Rigidbody _rigidbody;
-
+                
         #endregion Fields
 
         #region Unity Events
@@ -34,6 +34,8 @@ namespace Assets.Sources.Enemies
         #endregion Unity Events
 
         #region IEnemy Implementation
+
+        public Vector3 Position => transform.position;
 
         public void SetMovementDirection(Vector3? targetPosition)
         {

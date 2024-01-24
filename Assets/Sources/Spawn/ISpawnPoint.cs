@@ -2,8 +2,7 @@ using UnityEngine;
 
 namespace Assets.Sources.Spawn
 {
-    public interface ISpawnPoint
+    public interface ISpawnPoint : IPositionProvider
     {
-        Vector3 Position { get; }
     }
 }
